@@ -1,0 +1,80 @@
+:root {
+    --bg-color: #0000FF;
+    --text-color: #00FF00;
+    --padding: 20px;
+    --navbar-height: 60px;
+    --font-size-base: 1.7em;
+    --font-size-scale: .5vw;
+    --line-height: 1.0;
+    --outline-width: 2px;
+    --tablet-font-size: 6vw;
+    --tablet-line-height: 1.2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Kode Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--padding) / 2) var(--padding);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    outline: var(--outline-width) solid var(--text-color);
+}
+
+.navbar .logo {
+    font-size: var(--font-size-base);
+}
+
+.navbar .cc {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: calc(100vh - var(--navbar-height));
+    text-align: left;
+    padding: calc(var(--navbar-height) + var(--padding)) var(--padding) var(--padding);
+    box-sizing: border-box;
+}
+
+.text-container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: left;
+}
+
+.text {
+    font-size: calc(var(--font-size-base) + var(--font-size-scale));
+    line-height: var(--line-height);
+    white-space: pre-wrap;
+}
+
+@media (min-width: 768px) {
+    .text {
+        font-size: var(--tablet-font-size);
+        line-height: var(--tablet-line-height);
+    }
+
+    .text-container {
+        max-width: 100%; /* Ensures full width on larger screens */
+    }
+}

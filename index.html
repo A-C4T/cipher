@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cphr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="cphr_icon.png" type="image/png">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">cphr</div>
+        <div class="cc">.cc</div>
+    </div>
+
+    <div class="content">
+        <div class="text-container">
+            <div class="text" id="typewriter" data-first-text="A bright future awaits you..." data-second-text="What are you willing to do?"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.1/dist/core.min.js"></script>
+    <script>
+        const app = document.getElementById('typewriter');
+        const firstText = app.getAttribute('data-first-text');
+        const secondText = app.getAttribute('data-second-text');
+
+        const typewriter = new Typewriter(app, {
+            loop: false,
+            delay: 80
+        });
+
+        typewriter
+            .typeString(firstText + '<br><br>')
+            .pauseFor(1200)
+            .typeString(secondText)
+            .pauseFor(1600)
+            .callFunction(() => {
+                const cursor = document.querySelector('.Typewriter__cursor');
+                if (cursor) {
+                    cursor.style.display = 'none';
+                }
+            })
+            .start();
+    </script>
+</body>
+</html>
+
+
